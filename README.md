@@ -5,4 +5,3 @@ PoC demonstrating the deployment of an **ECS** service using **T**erra**f**orm, 
 ```bash
 make help
 ```
-
