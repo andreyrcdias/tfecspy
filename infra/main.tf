@@ -180,13 +180,3 @@ resource "aws_security_group" "allow_http" {
   }
 }
 
-
-# Notes
-# Status Quo: Already have the image uploaded to the ECR repository, and it need to be run on port 80
-# Goal: Deploy this Application to AWS with ECS and docker image
-# TODO:
-#  1. Create a ECS Cluster
-#  2. Take care about roles if need, create it
-#  3. Create ECS services or tasks that is needed
-#  4. It need to be run on port 80
-#  5. At the end of the day, I want to access this service through the internet.
