@@ -5,7 +5,7 @@ locals {
 }
 
 provider "aws" {
-  region     = "sa-east-1"
+  region     = var.aws_region
   access_key = var.aws_access_key_id
   secret_key = var.aws_secret_access_key
 }
@@ -36,7 +36,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "public" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.0.1.0/24"
-  availability_zone = "sa-east-1a"
+  availability_zone = "${var.aws_region}a"
 
   tags = {
     Name = local.app_name
@@ -136,7 +136,7 @@ resource "aws_ecs_task_definition" "main" {
         logDriver = "awslogs"
         options = {
           "awslogs-group"         = aws_cloudwatch_log_group.ecs_log_group.name
-          "awslogs-region"        = "sa-east-1"
+          "awslogs-region"        = var.aws_region
           "awslogs-stream-prefix" = "ecs"
         }
       }

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [ -z "$AWS_REGION" ] || [ -z "$AWS_ACCOUNT_ID" ]; then
   echo "ERROR: AWS_REGION and AWS_ACCOUNT_ID must be set."
